@@ -62,11 +62,7 @@ void draw(){
   scale(15, 15);
   translate(0, 17);
   drawMap();
-<<<<<<< HEAD
   shrek();
-=======
-  skrek();
->>>>>>> luke
   //gravity(); 
 }
 
