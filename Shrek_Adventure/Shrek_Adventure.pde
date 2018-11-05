@@ -1,7 +1,7 @@
 
 //GRAVITY?
 
-//Created by Luke Meads, Andre Kerlin, Joston Chan, Nik Sloop, Zac Stephan, Will Webb
+// Created by Luke Meads, Andre Kerlin, Joston Chan, Nik Sloop, Zac Stephan, Will Webb
 // this version has basic gravity
 
 //import ddf.minim.*;
@@ -62,7 +62,7 @@ void draw(){
   scale(15, 15);
   translate(0, 17);
   drawMap();
-  skrek();
+  shrek();
   //gravity(); 
 }
 
@@ -82,7 +82,7 @@ void makeMapArray() {
       map[x][y] = mapString.charAt(i++);
 }
 
-void skrek(){
+void shrek(){
   ellipse(oldX, oldY, .5, .5);
   
 }
