@@ -25,13 +25,14 @@ String mapString = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" +
                    "X                                                    X" +
                    "X                                                    X" +
                    "X                                                    X" +
-                   "X                         XXXX                       X" +
-                   "X                         X  X                       X" +
-                   "X                         X  X                       X" +
-                   "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
+                   "X                         XXXXX                      X" +
+                   "X                         XXXXX                      X" +
+                   "X                         XXXXX                      X" +
+                   "XXXXXXXXHHHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" +
+                   "XXXXXXXXHHHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
             
 int xL = 54;
-int yL = 15;
+int yL = 16;
 char[][] map = new char[xL][yL];
 
 int playerX = 1;
@@ -49,6 +50,7 @@ boolean jump = false;
 void setup(){
   size(800, 500);
   makeMapArray();
+  gravity();
   //minim = new Minim(this);
   //music = minim.loadFile("background2.mp3", 2048);
   //shrek = minim.loadFile("shrek.mp3", 2048);
@@ -62,8 +64,7 @@ void draw(){
   scale(15, 15);
   translate(0, 17);
   drawMap();
-  shrek();
-  //gravity(); 
+  shrek(); 
 }
 
 void drawMap() {
@@ -71,7 +72,7 @@ void drawMap() {
   for (int y = 0; y < yL; y++)
     for (int x = 0; x < xL; x++)
       if (map[x][y] == 'X')
-        rect(x, y, 1, 2);
+        rect(x, y, .1, .1);
 }
 
 void makeMapArray() {
@@ -87,7 +88,7 @@ void shrek(){
   
 }
 void gravity(){
-  while(map[playerX][playerY + 1] != 'X'){
+  while((map[playerX][playerY + 1] != 'X') && (playerY < 15)){
     playerY += 1;
   }
  
@@ -97,7 +98,9 @@ void jump(){
 }
 
 void keyPressed(){
-  
+ if(map[playerX][playerY] == 'H'){
+   playerX = 2;
+ }
   // LEFT RIGHT
  if(keyCode == UP && map[playerX][playerY - 1] != 'X' && jump == false){
     jump();
@@ -126,7 +129,7 @@ void keyPressed(){
  //  shrek.play();
  //}
  println(playerX, playerY);
- println(oldX, oldY);
+ //println(oldX, oldY);
 }
 
 void keyReleased () {
