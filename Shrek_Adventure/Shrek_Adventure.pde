@@ -168,7 +168,7 @@ void draw(){
   scale(15, 15);
   translate(0, 17);
   drawMap();
-  //skrek();
+  skrek();
   //gravity(); 
 }
 
