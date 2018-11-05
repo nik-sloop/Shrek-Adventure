@@ -110,13 +110,13 @@
 //Created by Luke Meads, Andre Kerlin, Joston Chan, Nik Sloop, Zac Stephan, Will Webb
 // this version has basic gravity
 
-//import ddf.minim.*;
-//AudioPlayer music;
-//AudioPlayer shrek;
+import ddf.minim.*;
+AudioPlayer music;
+AudioPlayer shrek;
 //AudioPlayer donkey;
 //AudioPlayer broken;
 //AudioPlayer die;
-//Minim minim;
+Minim minim;
 
 //Testing Andre code editing
 
@@ -146,7 +146,7 @@ float oldX = playerX;
 float oldY = playerY;
 
 // Used to create a smooth fall
-// float gravityX = playerX;
+//float gravityX = playerX;
 float gravityY = playerY;
             
 // Used to limit Shrek's mad vertical
@@ -155,10 +155,10 @@ boolean jump = false;
 void setup(){
   size(800, 500);
   makeMapArray();
-  //minim = new Minim(this);
-  //music = minim.loadFile("background2.mp3", 2048);
-  //shrek = minim.loadFile("shrek.mp3", 2048);
-  //music.loop();
+  minim = new Minim(this);
+  music = minim.loadFile("background2.mp3", 2048);
+  shrek = minim.loadFile("shrek.mp3", 2048);
+  music.loop();
 }
 
 void draw(){
@@ -209,6 +209,7 @@ void keyPressed(){
     jump();
     jump = true;
     println(jump);  
+    
  }
  if(keyCode == LEFT && map[playerX - 1][playerY] != 'X'){   
      playerX -= 1;
@@ -221,7 +222,7 @@ void keyPressed(){
     jump = false;
  }
  
- 
+  
  //if(keyCode == DOWN){
  //  if(map[playerX][playerY + 1] != 'X'){
  //     playerY = playerY + 1;
