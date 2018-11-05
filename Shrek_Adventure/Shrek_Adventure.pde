@@ -131,7 +131,7 @@ String mapString = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" +
                    "X                         XXXX                       X" +
                    "X                         X  X                       X" +
                    "X                         X  X                       X" +
-                   "XXXXXXXXXXXXOOXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
+                   "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
             
 int xL = 54;
 int yL = 15;
