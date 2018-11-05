@@ -150,7 +150,7 @@ float oldY = playerY;
 float gravityY = playerY;
             
 // Used to limit Shrek's mad vertical
-int jump = 0;
+boolean jump = false;
             
 void setup(){
   size(800, 500);
@@ -169,7 +169,7 @@ void draw(){
   translate(0, 17);
   drawMap();
   skrek();
-  gravityY = gravityY + 0.5; 
+  //gravity(); 
 }
 
 void drawMap() {
@@ -192,48 +192,35 @@ void skrek(){
   ellipse(oldX, oldY, .5, .5);
   
 }
+void gravity(){
+  while(map[playerX][playerY + 1] != 'X'){
+    playerY += 1;
+  }
+ 
+}
+void jump(){
+  playerY -= 6;
+}
 
 void keyPressed(){
   
   // LEFT RIGHT
- if(keyCode == LEFT){
-   
-   // Causes the player to fall if they move off a platform
-   if(map[playerX][playerY + 1] != 'X'){
-      playerY = playerY + 1;
-      //jump = 0;
-   }
-   
-   if(map[playerX - 1][playerY] != 'X'){
-     playerX -= 1;
-   }
+ if(keyCode == UP && map[playerX][playerY - 1] != 'X' && jump == false){
+    jump();
+    jump = true;
+    println(jump);  
  }
- if(keyCode == RIGHT){
-   
-   if(map[playerX][playerY + 1] != 'X'){
-      playerY = playerY + 1;
-      //jump = 0;
-   }
-   
-   if(map[playerX + 1][playerY] != 'X'){
-     playerX = playerX + 1;
-   }
+ if(keyCode == LEFT && map[playerX - 1][playerY] != 'X'){   
+     playerX -= 1;
+     gravity();
+     jump = false;
+ }
+ if(keyCode == RIGHT && (map[playerX + 1][playerY] != 'X')){   
+    playerX += 1;
+    gravity();
+    jump = false;
  }
  
-//// Makes the player fall if they're not jumping or there is no platform 
-//while (map[playerX][playerY + 1] != 'X' && keyCode != UP ) {
-//  playerY = playerY + 1;
-//}
-
-// UP DOWN
- if(keyCode == UP){
-   
-   if(map[playerX][playerY - 1] != 'X' && jump < 6){
-      playerY -= 1;
-      jump += 1;
-      println(jump);
-   }
- }
  
  //if(keyCode == DOWN){
  //  if(map[playerX][playerY + 1] != 'X'){
@@ -253,7 +240,7 @@ void keyReleased () {
   if(keyCode == UP || keyCode == LEFT || keyCode == RIGHT) {
    while(map[playerX][playerY + 1] != 'X'){   
       playerY = playerY + 1;
-      jump = 0;
+      jump = false;
    }  
  }
 }
