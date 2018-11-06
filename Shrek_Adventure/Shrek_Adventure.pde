@@ -190,7 +190,7 @@ void simulate() {
     py = -100;
     ax = 0;
     vx = 0;
-    vy = 10;
+    vy = 10;    
   }
 }
  
@@ -214,7 +214,7 @@ void keyPressed(){
   if (keyCode == RIGHT) {
     keys[1] = true;
   }
-  if (keyCode == UP) {
+  if (keyCode == UP && vy == 0) { // Only allows jumping if youre not moving vertically
     vy = -10;
   }
 }
@@ -228,8 +228,8 @@ void keyReleased(){
     keys[1] = false;
     vx = 0;
   }
-  if (keyCode == UP) {
-    vy = 0;
-  }
+  //if (keyCode == UP) {
+  //  vy = -1;
+  //}
 }
   
