@@ -321,12 +321,14 @@ void keyPressed(){
 void keyReleased(){
   if (keyCode == LEFT) {
     keys[0] = false;
+    vx = 0;
   }
   if (keyCode == RIGHT) {
     keys[1] = false;
+    vx = 0;
   }
-  //if (keyCode == UP) {
-  //  vy = 0;
-  //}
+  if (keyCode == UP) {
+    vy = 0;
+  }
 }
   
