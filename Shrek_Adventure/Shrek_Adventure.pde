@@ -155,7 +155,7 @@ void setup() {
 }
  
 void draw() {
-  background(bg);
+  //background(bg);
   simulate();
   render();
 }
