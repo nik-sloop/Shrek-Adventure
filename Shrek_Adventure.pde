@@ -222,7 +222,7 @@ void keyPressed(){
  //if(key == 'm'){
  //  shrek.play();
  //}
- println(playerX, playerY);
+ //println(playerX, playerY);
  //println(oldX, oldY);
 }
 =======
@@ -232,7 +232,6 @@ void keyPressed(){
 // println(playerX, playerY);
 // println(oldX, oldY);
 //}
->>>>>>> master:Shrek_Adventure/Shrek_Adventure.pde
 
 //void keyReleased () {
   
