@@ -25,11 +25,18 @@ String mapString = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" +
                    "X                                                    X" +
                    "X                                                    X" +
                    "X                                                    X" +
+<<<<<<< HEAD:Shrek_Adventure.pde
                    "X                         XXXXX                      X" +
                    "X                         XXXXX                      X" +
                    "X                         XXXXX                      X" +
                    "XXXXXXXXHHHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" +
                    "XXXXXXXXHHHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
+=======
+                   "X                         XXXX                       X" +
+                   "X                         XXXX                       X" +
+                   "X                         XXXX                       X" +
+                   "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
+>>>>>>> master:Shrek_Adventure/Shrek_Adventure.pde
             
 int xL = 54;
 int yL = 16;
@@ -83,12 +90,17 @@ void makeMapArray() {
       map[x][y] = mapString.charAt(i++);
 }
 
-void shrek(){
+void shrek() {    // draws ellipse that shows player's current location
   ellipse(oldX, oldY, .5, .5);
   
 }
+<<<<<<< HEAD:Shrek_Adventure.pde
 void gravity(){
   while((map[playerX][playerY + 1] != 'X') && (playerY < 15)){
+=======
+void gravity() {
+  while(map[playerX][playerY + 1] != 'X') {
+>>>>>>> master:Shrek_Adventure/Shrek_Adventure.pde
     playerY += 1;
   }
  
