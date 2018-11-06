@@ -169,6 +169,7 @@ void draw(){
   translate(0, 17);
   drawMap();
   skrek();
+  gravityY = gravityY + 0.5; 
 }
 
 void drawMap() {
@@ -199,9 +200,8 @@ void keyPressed(){
    
    // Causes the player to fall if they move off a platform
    if(map[playerX][playerY + 1] != 'X'){
-      gravityY = gravityY + 0.5; 
       playerY = playerY + 1;
-      jump = 0;
+      //jump = 0;
    }
    
    if(map[playerX - 1][playerY] != 'X'){
@@ -211,9 +211,8 @@ void keyPressed(){
  if(keyCode == RIGHT){
    
    if(map[playerX][playerY + 1] != 'X'){
-     gravityY = gravityY + 0.005;
       playerY = playerY + 1;
-      jump = 0;
+      //jump = 0;
    }
    
    if(map[playerX + 1][playerY] != 'X'){
@@ -230,8 +229,8 @@ void keyPressed(){
  if(keyCode == UP){
    
    if(map[playerX][playerY - 1] != 'X' && jump < 6){
-      playerY = playerY - 1;
-      jump = jump + 1;
+      playerY -= 1;
+      jump += 1;
       println(jump);
    }
  }
@@ -252,8 +251,7 @@ void keyPressed(){
 void keyReleased () {
   
   if(keyCode == UP || keyCode == LEFT || keyCode == RIGHT) {
-   while(map[playerX][playerY + 1] != 'X'){
-      gravityY = gravityY + 0.5;     
+   while(map[playerX][playerY + 1] != 'X'){   
       playerY = playerY + 1;
       jump = 0;
    }  
