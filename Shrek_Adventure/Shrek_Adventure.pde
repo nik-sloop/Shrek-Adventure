@@ -28,6 +28,7 @@ void simulate() {
   vy += ay;
   px += vx;
   py += vy;
+  
   if (px < 10) {
     vx = 0;
     ax = 0;
@@ -36,7 +37,7 @@ void simulate() {
   if (px > 1190) {
     vx = 0;
     ax = 0;
-    px = 390;    // player boundary, if position hits 390 drops straight down instead of going outside screen
+    px = 1190;    // player boundary, if position hits 390 drops straight down instead of going outside screen
   }
  
   if (py > 575 && px > 50 && px < 750) { 
@@ -63,6 +64,7 @@ void render() {
   rect(50, 575, 700, 25);
   noStroke();
   fill(0, 255, 0);
+  // draw sprite
   rect(px - 10, py - 20, 20, 20);
 }
  
