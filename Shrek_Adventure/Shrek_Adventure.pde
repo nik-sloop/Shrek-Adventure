@@ -26,8 +26,8 @@ String mapString = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" +
                    "X                                                    X" +
                    "X                                                    X" +
                    "X                         XXXX                       X" +
-                   "X                         X  X                       X" +
-                   "X                         X  X                       X" +
+                   "X                         XXXX                       X" +
+                   "X                         XXXX                       X" +
                    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
             
 int xL = 54;
@@ -82,12 +82,12 @@ void makeMapArray() {
       map[x][y] = mapString.charAt(i++);
 }
 
-void shrek(){
+void shrek() {    // draws ellipse that shows player's current location
   ellipse(oldX, oldY, .5, .5);
   
 }
-void gravity(){
-  while(map[playerX][playerY + 1] != 'X'){
+void gravity() {
+  while(map[playerX][playerY + 1] != 'X') {
     playerY += 1;
   }
  
