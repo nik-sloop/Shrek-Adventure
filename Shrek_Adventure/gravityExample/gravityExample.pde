@@ -1,142 +1,82 @@
-class SideJumper
-{
-  PImage image;
-  PVector position;
-  float direction;
-  PVector velocity;
-  float jumpSpeed;
-  float walkSpeed;
+float px = 200;
+float py = 300;
+float vx = 0;
+float vy = 0;
+float ax = 0;
+float ay = 0;
+ 
+boolean[] keys = { false, false };
+ 
+void setup() {
+  size(400, 400);
 }
-
-// GLOBAL VARIABLES
-
-SideJumper oldGuy;
-float left;
-float right;
-float up;
-float down;
-
-PImage donkey;
-
-// half a pixel per frame gravity.
-float gravity = .5;
-
-// Y coordinate of ground for collision
-float ground = 500;
-
-void setup()
-{
-  size(800, 600);
-  
-  oldGuy = new SideJumper();
-  donkey = loadImage("DonkeySpriteIdle2.png");
-  oldGuy.image = loadImage("ShrekIdleSprite2.png");
-  
-  oldGuy.position = new PVector(400, ground);
-  oldGuy.direction = 1;
-  oldGuy.velocity = new PVector(0, 0);
-  oldGuy.jumpSpeed = 10;
-  oldGuy.walkSpeed = 4;
+ 
+void draw() {
+  simulate();
+  render();
 }
-
-void draw()
-{
-  background(100);
-  updateOldGuy();
-  
-  image(donkey, 350, ground);
-}
-
-void updateOldGuy()
-{
-  // Only apply gravity if above ground (since y positive is down we use < ground)
-  if (oldGuy.position.y < ground)
-  {
-    oldGuy.velocity.y += gravity;
+ 
+void simulate() {
+  ax = 0;
+  ax += keys[0]?-.1:0;
+  ax += keys[1]?.1:0;
+  ay = .32;
+  vx+=ax;
+  vy+=ay;
+  px+=vx;
+  py+=vy;
+  if( px<10){
+    vx = 0;
+    ax = 0;
+    px = 10;
   }
-  else
-  {
-    oldGuy.velocity.y = 0; 
+  if( px>390){
+    vx = 0;
+    ax = 0;
+    px = 390;
   }
-  
-  // If on the ground and "jump" keyy is pressed set my upward velocity to the jump speed!
-  if (oldGuy.position.y >= ground && up != 0)
-  {
-    oldGuy.velocity.y = -oldGuy.jumpSpeed;
+ 
+  if (py>300 && px>100 && px<300) { 
+    py=300; 
+    vy=0; 
+    ay=0;
   }
-  
-  // Wlak left and right. See Car example for more detail.
-  oldGuy.velocity.x = oldGuy.walkSpeed * (left + right);
-  
-  // We check the nextPosition before actually setting the position so we can
-  // not move the oldguy if he's colliding.
-  PVector nextPosition = new PVector(oldGuy.position.x, oldGuy.position.y);
-  nextPosition.add(oldGuy.velocity);
-  
-  // Check collision with edge of screen and don't move if at the edge
-  float offset = 0;
-  if (nextPosition.x > offset && nextPosition.x < (width - offset))
-  {
-    oldGuy.position.x = nextPosition.x;
-  } 
-  if (nextPosition.y > offset && nextPosition.y < (height - offset))
-  {
-    oldGuy.position.y = nextPosition.y;
-  } 
-  
-  // See car example for more detail here.
-  pushMatrix();
-  
-  translate(oldGuy.position.x, oldGuy.position.y);
-  
-  // Always scale after translate and rotate.
-  // We're using oldGuy.direction because a -1 scale flips the image in that direction.
-  scale(oldGuy.direction, 1);
-  
-  imageMode(CENTER);
-  image(oldGuy.image, 0, 0);
-  
-  popMatrix();
-}
-
-void keyPressed()
-{
-  if (key == 'd')
-  {
-    right = 1;
-    oldGuy.direction = -1;
-  }
-  if (key == 'a')
-  {
-    left = -1;
-    oldGuy.direction = 1;
-  }
-  if (key == ' ')
-  {
-    up = -1;
-  }
-  if (key == 's')
-  {
-    down = 1;
+  if( py>420 ){
+    px = 200;
+    py = -100;
+    ax = 0;
+    vx = 0;
+    vy = 10;
   }
 }
-
-void keyReleased()
-{
-  if (key == 'd')
-  {
-    right = 0;
+ 
+void render() {
+  background(64);
+  strokeWeight(3);
+  stroke(0);
+  line(100, 300, 300, 300);
+  noStroke();
+  fill(0, 255, 0);
+  rect(px-10, py-20, 20, 20);
+}
+ 
+void keyPressed(){
+  if( keyCode == LEFT ){
+    keys[0] = true;
   }
-  if (key == 'a')
-  {
-    left = 0;
+  if( keyCode == RIGHT ){
+    keys[1] = true;
   }
-  if (key == ' ')
-  {
-    up = 0;
+  if( keyCode == UP ){
+    vy = -10;
   }
-  if (key == 's')
-  {
-    down = 0;
+}
+ 
+void keyReleased(){
+  if( keyCode == LEFT ){
+    keys[0] = false;
+  }
+  if( keyCode == RIGHT ){
+    keys[1] = false;
   }
 }
