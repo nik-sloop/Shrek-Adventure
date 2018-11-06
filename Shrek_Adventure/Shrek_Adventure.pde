@@ -1,144 +1,3 @@
-
-////GRAVITY?
-
-//// Created by Luke Meads, Andre Kerlin, Joston Chan, Nik Sloop, Zac Stephan, Will Webb
-//// this version has basic gravity
-
-////import ddf.minim.*;
-////AudioPlayer music;
-////AudioPlayer shrek;
-////AudioPlayer donkey;
-////AudioPlayer broken;
-////AudioPlayer die;
-////Minim minim;
-
-////Testing Andre code editing
-
-//String mapString = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" +
-//                   "X                                                    X" +
-//                   "X                                                    X" +
-//                   "X                                                    X" +
-//                   "X                                                    X" +
-//                   "X                                                    X" +
-//                   "X                                                    X" +
-//                   "X                                                    X" +
-//                   "X                                                    X" +
-//                   "X                                                    X" +
-//                   "X                                                    X" +
-//                   "X                         XXXX                       X" +
-//                   "X                         XXXX        XX             X" +
-//                   "X                         XXXX        XX             X" +
-//                   "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
-            
-//int xL = 54;
-//int yL = 15;
-//char[][] map = new char[xL][yL];
-
-//int playerX = 1;
-//int playerY = 10;
-//float oldX = playerX;
-//float oldY = playerY;
-
-//// Used to create a smooth fall
-//// float gravityX = playerX;
-//float gravityY = playerY;
-            
-//// Used to limit Shrek's mad vertical
-//boolean jump = false;
-            
-//void setup(){
-//  size(800, 500);
-//  makeMapArray();
-//  //minim = new Minim(this);
-//  //music = minim.loadFile("background2.mp3", 2048);
-//  //shrek = minim.loadFile("shrek.mp3", 2048);
-//  //music.loop();
-//}
-
-//void draw(){
-//  oldX = (oldX * 9 + playerX) / 10;
-//  oldY = (oldY * 9 + playerY) / 10;
-//  background(255);
-//  scale(15, 15);
-//  translate(0, 17);
-//  drawMap();
-//  shrek();
-//  //gravity(); 
-//}
-
-//void drawMap() {
-  
-//  for (int y = 0; y < yL; y++)
-//    for (int x = 0; x < xL; x++)
-//      if (map[x][y] == 'X')
-//        rect(x, y, 1, 2);
-//}
-
-//void makeMapArray() {
-//  int i = 0;
-  
-//  for (int y = 0; y < yL; y++)
-//    for (int x = 0; x < xL; x++)
-//      map[x][y] = mapString.charAt(i++);
-//}
-
-//void shrek() {    // draws ellipse that shows player's current location
-//  ellipse(oldX, oldY, .5, .5);
-  
-//}
-//void gravity() {
-//  while(map[playerX][playerY + 1] != 'X') {
-//    playerY += 1;
-//  }
- 
-//}
-//void jump(){
-//  playerY -= 6;
-//}
-
-//void keyPressed(){
-  
-//  // LEFT RIGHT
-// if(keyCode == UP && map[playerX][playerY - 1] != 'X' && jump == false){
-//    jump();
-//    jump = true;
-//    println(jump);  
-// }
-// if(keyCode == LEFT && map[playerX - 1][playerY] != 'X'){   
-//     playerX -= 1;
-//     gravity();
-//     jump = false;
-// }
-// if(keyCode == RIGHT && (map[playerX + 1][playerY] != 'X')){   
-//    playerX += 1;
-//    gravity();
-//    jump = false;
-// }
- 
- 
-// //if(keyCode == DOWN){
-// //  if(map[playerX][playerY + 1] != 'X'){
-// //     playerY = playerY + 1;
-// //  }
-// //}
- 
-// //if(key == 'm'){
-// //  shrek.play();
-// //}
-// println(playerX, playerY);
-// println(oldX, oldY);
-//}
-
-//void keyReleased () {
-  
-//  if(keyCode == UP || keyCode == LEFT || keyCode == RIGHT) {
-//   while(map[playerX][playerY + 1] != 'X'){   
-//      playerY = playerY + 1;
-//      jump = false;
-//   }  
-// }
-//}
-
 PImage bg;
 float px = 75;  // object position
 float py = 200;  // object position
@@ -151,11 +10,11 @@ boolean[] keys = { false, false };
  
 void setup() {
   size(1200, 600);
-  bg = loadImage("moonwalk.jpg");
+  //bg = loadImage("ShrekBG.jpg");
+  //background(bg);
 }
  
 void draw() {
-  //background(bg);
   simulate();
   render();
 }
@@ -195,7 +54,7 @@ void simulate() {
 }
  
 void render() {
-  background(100);
+  background(50);
   strokeWeight(3);
   stroke(0);
   //line(100, 300, 300, 300);
