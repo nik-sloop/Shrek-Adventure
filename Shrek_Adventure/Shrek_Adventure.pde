@@ -30,6 +30,7 @@ void simulate() {
   vy += ay;
   px += vx;
   py += vy;
+  
   if (px < 10) {
     vx = 0;
     ax = 0;
@@ -38,10 +39,10 @@ void simulate() {
   if (px > 1190) {
     vx = 0;
     ax = 0;
-    px = 390;    // player boundary, if position hits 390 drops straight down instead of going outside screen
+    px = 1190;    // player boundary, if position hits 390 drops straight down instead of going outside screen
   }
  
-  if (py > 575 && px > 50 && px < 750) { 
+  if (py > 575 && px > 50 && px < 750 || py > 575 && px > 900 && px < 1400) { 
     py = 575; 
     vy = 0; 
     ay = 0;
@@ -63,6 +64,7 @@ void render() {
   //line(50, 575, 750, 575);
   fill(139, 69 ,19);
   rect(50, 575, 700, 25);
+  rect(900, 575, 1400, 575);
   noStroke();
   fill(0, 255, 0);
   //rect(px - 10, py - 20, 20, 20);
