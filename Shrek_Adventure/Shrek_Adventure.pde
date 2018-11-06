@@ -5,13 +5,15 @@ float vx = 0;  // current velocity
 float vy = 0;  // current velocity
 float ax = 0;  // object acceleration
 float ay = 0;  // object acceleration
- 
+PImage shrek;
 boolean[] keys = { false, false };
  
 void setup() {
   size(1200, 600);
   //bg = loadImage("ShrekBG.jpg");
   //background(bg);
+  scale(.05);
+  shrek = loadImage("ShrekIdleSprite2.png");
 }
  
 void draw() {
@@ -63,7 +65,9 @@ void render() {
   rect(50, 575, 700, 25);
   noStroke();
   fill(0, 255, 0);
-  rect(px - 10, py - 20, 20, 20);
+  //rect(px - 10, py - 20, 20, 20);
+  scale(.05);
+  image(shrek, 20 *(px-20),20 *(py-45));
 }
  
 void keyPressed(){
