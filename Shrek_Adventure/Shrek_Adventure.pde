@@ -151,11 +151,9 @@ boolean[] keys = { false, false };
  
 void setup() {
   size(1200, 600);
-  bg = loadImage("moonwalk.jpg");
 }
  
 void draw() {
-  //background(bg);
   simulate();
   render();
 }
@@ -195,7 +193,8 @@ void simulate() {
 }
  
 void render() {
-  background(100);
+  bg = loadImage("ShrekBG.jpg");
+  background(bg);
   strokeWeight(3);
   stroke(0);
   //line(100, 300, 300, 300);
