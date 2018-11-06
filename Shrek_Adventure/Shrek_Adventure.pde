@@ -139,7 +139,8 @@
 // }
 //}
 
-float px = 25;  // object position
+PImage bg;
+float px = 75;  // object position
 float py = 200;  // object position
 float vx = 0;  // current velocity
 float vy = 0;  // current velocity
@@ -150,9 +151,11 @@ boolean[] keys = { false, false };
  
 void setup() {
   size(1200, 600);
+  bg = loadImage("moonwalk.jpg");
 }
  
 void draw() {
+  background(bg);
   simulate();
   render();
 }
@@ -178,9 +181,9 @@ void simulate() {
   }
  
   if (py > 575 && px > 50 && px < 750) { 
-    py=575; 
-    vy=0; 
-    ay=0;
+    py = 575; 
+    vy = 0; 
+    ay = 0;
   }
   if (py > 700) {
     px = 75;
@@ -196,7 +199,9 @@ void render() {
   strokeWeight(3);
   stroke(0);
   //line(100, 300, 300, 300);
-  line(50, 575, 750, 575);
+  //line(50, 575, 750, 575);
+  fill(139, 69 ,19);
+  rect(50, 575, 700, 25);
   noStroke();
   fill(0, 255, 0);
   rect(px - 10, py - 20, 20, 20);
