@@ -1,4 +1,3 @@
-<<<<<<< HEAD:Shrek_Adventure.pde
 
 ////GRAVITY?
 
@@ -15,35 +14,6 @@
 
 ////Testing Andre code editing
 
-<<<<<<< HEAD:Shrek_Adventure.pde
-String mapString = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" +
-                   "X                                                    X" +
-                   "X                                                    X" +
-                   "X                                                    X" +
-                   "X                                                    X" +
-                   "X                                                    X" +
-                   "X                                                    X" +
-                   "X                                                    X" +
-                   "X                                                    X" +
-                   "X                                                    X" +
-                   "X                                                    X" +
-<<<<<<< HEAD:Shrek_Adventure.pde
-                   "X                         XXXXX                      X" +
-                   "X                         XXXXX                      X" +
-                   "X                         XXXXX                      X" +
-                   "XXXXXXXXHHHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" +
-                   "XXXXXXXXHHHXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
-=======
-                   "X                         XXXX                       X" +
-                   "X                         XXXX                       X" +
-                   "X                         XXXX                       X" +
-                   "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
->>>>>>> master:Shrek_Adventure/Shrek_Adventure.pde
-            
-int xL = 54;
-int yL = 16;
-char[][] map = new char[xL][yL];
-=======
 //String mapString = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" +
 //                   "X                                                    X" +
 //                   "X                                                    X" +
@@ -63,7 +33,6 @@ char[][] map = new char[xL][yL];
 //int xL = 54;
 //int yL = 15;
 //char[][] map = new char[xL][yL];
->>>>>>> master:Shrek_Adventure/Shrek_Adventure.pde
 
 //int playerX = 1;
 //int playerY = 10;
@@ -77,27 +46,6 @@ char[][] map = new char[xL][yL];
 //// Used to limit Shrek's mad vertical
 //boolean jump = false;
             
-<<<<<<< HEAD:Shrek_Adventure.pde
-void setup(){
-  size(800, 500);
-  makeMapArray();
-  gravity();
-  //minim = new Minim(this);
-  //music = minim.loadFile("background2.mp3", 2048);
-  //shrek = minim.loadFile("shrek.mp3", 2048);
-  //music.loop();
-}
-
-void draw(){
-  oldX = (oldX * 9 + playerX) / 10;
-  oldY = (oldY * 9 + playerY) / 10;
-  background(255);
-  scale(15, 15);
-  translate(0, 17);
-  drawMap();
-  shrek(); 
-}
-=======
 //void setup(){
 //  size(800, 500);
 //  makeMapArray();
@@ -117,23 +65,14 @@ void draw(){
 //  shrek();
 //  //gravity(); 
 //}
->>>>>>> master:Shrek_Adventure/Shrek_Adventure.pde
 
 //void drawMap() {
   
-<<<<<<< HEAD:Shrek_Adventure.pde
-  for (int y = 0; y < yL; y++)
-    for (int x = 0; x < xL; x++)
-      if (map[x][y] == 'X')
-        rect(x, y, .1, .1);
-}
-=======
 //  for (int y = 0; y < yL; y++)
 //    for (int x = 0; x < xL; x++)
 //      if (map[x][y] == 'X')
 //        rect(x, y, 1, 2);
 //}
->>>>>>> master:Shrek_Adventure/Shrek_Adventure.pde
 
 //void makeMapArray() {
 //  int i = 0;
@@ -146,52 +85,17 @@ void draw(){
 //void shrek() {    // draws ellipse that shows player's current location
 //  ellipse(oldX, oldY, .5, .5);
   
-<<<<<<< HEAD:Shrek_Adventure.pde
-}
-<<<<<<< HEAD:Shrek_Adventure.pde
-void gravity(){
-  while((map[playerX][playerY + 1] != 'X') && (playerY < 15)){
-=======
-void gravity() {
-  while(map[playerX][playerY + 1] != 'X') {
->>>>>>> master:Shrek_Adventure/Shrek_Adventure.pde
-    playerY += 1;
-  }
-=======
 //}
 //void gravity() {
 //  while(map[playerX][playerY + 1] != 'X') {
 //    playerY += 1;
 //  }
->>>>>>> master:Shrek_Adventure/Shrek_Adventure.pde
  
 //}
 //void jump(){
 //  playerY -= 6;
 //}
 
-<<<<<<< HEAD:Shrek_Adventure.pde
-void keyPressed(){
- if(map[playerX][playerY] == 'H'){
-   playerX = 2;
- }
-  // LEFT RIGHT
- if(keyCode == UP && map[playerX][playerY - 1] != 'X' && jump == false){
-    jump();
-    jump = true;
-    println(jump);  
- }
- if(keyCode == LEFT && map[playerX - 1][playerY] != 'X'){   
-     playerX -= 1;
-     gravity();
-     jump = false;
- }
- if(keyCode == RIGHT && (map[playerX + 1][playerY] != 'X')){   
-    playerX += 1;
-    gravity();
-    jump = false;
- }
-=======
 //void keyPressed(){
   
 //  // LEFT RIGHT
@@ -210,7 +114,6 @@ void keyPressed(){
 //    gravity();
 //    jump = false;
 // }
->>>>>>> master:Shrek_Adventure/Shrek_Adventure.pde
  
  
 // //if(keyCode == DOWN){
@@ -219,14 +122,6 @@ void keyPressed(){
 // //  }
 // //}
  
-<<<<<<< HEAD:Shrek_Adventure.pde
- //if(key == 'm'){
- //  shrek.play();
- //}
- //println(playerX, playerY);
- //println(oldX, oldY);
-}
-=======
 // //if(key == 'm'){
 // //  shrek.play();
 // //}
@@ -244,8 +139,6 @@ void keyPressed(){
 // }
 //}
 
-=======
->>>>>>> master:Shrek_Adventure/Shrek_Adventure.pde
 PImage bg;
 float px = 75;  // object position
 float py = 200;  // object position
@@ -258,8 +151,6 @@ boolean[] keys = { false, false };
  
 void setup() {
   size(1200, 600);
-  //bg = loadImage("ShrekBG.jpg");
-  //background(bg);
 }
  
 void draw() {
@@ -302,7 +193,8 @@ void simulate() {
 }
  
 void render() {
-  background(50);
+  bg = loadImage("ShrekBG.jpg");
+  background(bg);
   strokeWeight(3);
   stroke(0);
   //line(100, 300, 300, 300);
