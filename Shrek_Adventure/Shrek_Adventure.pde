@@ -10,7 +10,10 @@ int character = 1; // keeps track of which character is selected
 PImage bg;
 PImage shrek;
 PImage donkey;
-
+PImage grass;
+PImage logs;
+PImage Rocks;
+PImage swampwater;
 
 
 boolean[] keys = { false, false};
@@ -22,6 +25,10 @@ void setup() {
   scale(.05);
   shrek = loadImage("ShrekIdleSprite2.png");
   donkey = loadImage("DonkeySpriteIdle2.png");
+  grass = loadImage("BreakableGrassSprite.png");
+  Rocks = loadImage("breakableRockSprite.png");
+  logs = loadImage("BreakableLogsSprite.png");
+  swampwater = loadImage("swampwater.png");
 }
  
 void draw() {
@@ -87,6 +94,33 @@ void render() {
   } else {
     image(donkey, 20 *(px-20),20 *(py-45)); // Donkey
   }
+  
+  image(grass, 20000, 10600);
+  image(grass, 13000, 10600);
+  image(grass, 14000, 10600);
+  image(grass, 10000, 10600);
+  image(grass, 9400, 10600);
+  image(grass, 1050, 10600);
+  image(grass, 11000, 10600);
+  image(grass, 12300, 10600);
+  image(grass, 8000, 10600);
+  image(grass, 65500, 10600);
+  image(grass, 14000, 10600);
+  image(grass, 4000, 10600);
+  image(grass, 5400, 10600);
+  image(grass, 2950, 10600);
+  image(grass, 1100, 10600);
+  
+  image(Rocks, 19000, 10600);
+  image(Rocks, 19800, 10600);
+  image(logs, 21400, 10600);
+  image(logs, 20500, 10600);
+  
+  
+  image(swampwater, 15000, 11500);
+
+
+
   
   // Tries to flip the image to face the direction the character is moving
   //pushMatrix();
