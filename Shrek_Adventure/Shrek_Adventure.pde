@@ -1,12 +1,19 @@
-PImage bg;
 float px = 75;  // object position
 float py = 200;  // object position
 float vx = 0;  // current velocity
 float vy = 0;  // current velocity
 float ax = 0;  // object acceleration
 float ay = 0;  // object acceleration
+int character = 1; // keeps track of which character is selected
+
+// creates variables for the images
+PImage bg;
 PImage shrek;
-boolean[] keys = { false, false };
+PImage donkey;
+
+
+
+boolean[] keys = { false, false};
  
 void setup() {
   size(1200, 600);
@@ -14,6 +21,7 @@ void setup() {
   //background(bg);
   scale(.05);
   shrek = loadImage("ShrekIdleSprite2.png");
+  donkey = loadImage("DonkeySpriteIdle2.png");
 }
  
 void draw() {
@@ -57,30 +65,56 @@ void simulate() {
 }
  
 void render() {
+  // Background
   background(50);
   strokeWeight(3);
   stroke(0);
   //line(100, 300, 300, 300);
   //line(50, 575, 750, 575);
   fill(139, 69 ,19);
+  
+  // Platforms
   rect(50, 575, 700, 25);
   rect(900, 575, 1400, 575);
   noStroke();
   fill(0, 255, 0);
   //rect(px - 10, py - 20, 20, 20);
-  scale(.05);
-  image(shrek, 20 *(px-20),20 *(py-45));
+  
+  // Sprites
+  scale(.05); // Properly scales the sprite
+  if (character == 1) { // determines which sprite to display
+    image(shrek, 20 *(px-20),20 *(py-45)); // Shrek
+  } else {
+    image(donkey, 20 *(px-20),20 *(py-45)); // Donkey
+  }
+  
+  // Tries to flip the image to face the direction the character is moving
+  //pushMatrix();
+  //if(keys[0] == true) {
+  // scale(1,1); 
+  //} else if (keys[1] == true) {
+  // scale(-1, 1); 
+  //}
+  //popMatrix();
+  
 }
  
+ // Moves character
 void keyPressed(){
-  if (keyCode == LEFT) {
+  if (keyCode == LEFT) { // Moves left
     keys[0] = true;
   }
-  if (keyCode == RIGHT) {
+  if (keyCode == RIGHT) { // Moves right
     keys[1] = true;
   }
-  if (keyCode == UP && vy == 0) { // Only allows jumping if youre not moving vertically
+  // Jump
+  if (keyCode == ' ' && vy == 0) { // Only allows jumping if youre not moving vertically
     vy = -10;
+  }
+  
+  // Toggles character selection
+  if (keyCode == 'E') {
+     character = character * -1;
   }
 }
  
