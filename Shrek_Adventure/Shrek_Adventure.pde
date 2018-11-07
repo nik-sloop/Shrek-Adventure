@@ -167,14 +167,14 @@ void render() {
  
  // Moves character
 void keyPressed(){
-  if (keyCode == LEFT) { // Moves left
+  if (keyCode == 'A') { // Moves left
     keys[0] = true;
   }
-  if (keyCode == RIGHT) { // Moves right
+  if (keyCode == 'D') { // Moves right
     keys[1] = true;
   }
   // Jump
-  if (keyCode == ' ' && vy == 0) { // Only allows jumping if youre not moving vertically
+  if (keyCode == 'W' && vy == 0) { // Only allows jumping if youre not moving vertically
     vy = jump;
   }
   
@@ -185,11 +185,11 @@ void keyPressed(){
 }
  
 void keyReleased(){
-  if (keyCode == LEFT) {
+  if (keyCode == 'A') {
     keys[0] = false;
     vx = 0;
   }
-  if (keyCode == RIGHT) {
+  if (keyCode == 'D') {
     keys[1] = false;
     vx = 0;
   }
