@@ -1,3 +1,7 @@
+import ddf.minim.*;
+AudioPlayer background;
+Minim minim;
+
 float px = 75;  // object position
 float py = 200;  // object position
 float vx = 0;  // current velocity
@@ -32,6 +36,9 @@ void setup() {
   logs = loadImage("BreakableLogsSprite.png");
   swampwater = loadImage("swampwater.png");
   outhouse = loadImage("outhouse.png");
+  minim = new Minim(this);
+  background = minim.loadFile("background2.mp3");
+  background.loop();
 }
  
 void draw() {
