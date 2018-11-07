@@ -5,6 +5,7 @@ float vy = 0;  // current velocity
 float ax = 0;  // object acceleration
 float ay = 0;  // object acceleration
 int character = 1; // keeps track of which character is selected
+int jump = -5; // controls the jump height of the characters
 
 // creates variables for the images
 PImage bg;
@@ -62,6 +63,13 @@ void simulate() {
     vy = 0; 
     ay = 0;
   }
+  
+  if (py > 450 && px > 780 && px < 880) {
+    py = 450; 
+    vy = 0; 
+    ay = 0;
+  }
+  
   if (py > 700) {
     px = 75;
     py = -100;
@@ -82,7 +90,8 @@ void render() {
   
   // Platforms
   rect(50, 575, 700, 25);
-  rect(900, 575, 1400, 575);
+  rect(900, 575, 500, 25);
+  rect(780, 450, 100, 25);
   noStroke();
   fill(0, 255, 0);
   //rect(px - 10, py - 20, 20, 20);
@@ -91,8 +100,10 @@ void render() {
   scale(.05); // Properly scales the sprite
   if (character == 1) { // determines which sprite to display
     image(shrek, 20 *(px-20),20 *(py-45)); // Shrek
+    jump = -5; // Shek's jump height
   } else {
     image(donkey, 20 *(px-20),20 *(py-45)); // Donkey
+    jump = -10; // Donkey jumps higher than Shrek
   }
   
   image(grass, 20000, 10600);
@@ -143,7 +154,7 @@ void keyPressed(){
   }
   // Jump
   if (keyCode == ' ' && vy == 0) { // Only allows jumping if youre not moving vertically
-    vy = -10;
+    vy = jump;
   }
   
   // Toggles character selection
