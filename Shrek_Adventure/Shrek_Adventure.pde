@@ -1,5 +1,7 @@
 import ddf.minim.*;
 AudioPlayer background;
+AudioPlayer shrek1;
+AudioPlayer waffles;
 Minim minim;
 
 float px = 75;  // object position
@@ -38,6 +40,8 @@ void setup() {
   outhouse = loadImage("outhouse.png");
   minim = new Minim(this);
   background = minim.loadFile("background2.mp3");
+  shrek1 = minim.loadFile("shrek.mp3");
+  waffles = minim.loadFile("Waffles.mp3");
   background.loop();
 }
  
@@ -73,7 +77,7 @@ void simulate() {
     ay = 0;
   }
   
-  if (py > 450 && px > 780 && px < 880) {
+  if (py < 450 && px > 780 && px < 880) {
     py = 450; 
     vy = 0; 
     ay = 0;
@@ -111,9 +115,14 @@ void render() {
   if (character == 1) { // determines which sprite to display
     image(shrek, 20 *(px-20),20 *(py-45)); // Shrek
     jump = -5; // Shek's jump height
+    waffles.play();
+    waffles.rewind();
   } else {
     image(donkey, 20 *(px-20),20 *(py-45)); // Donkey
     jump = -10; // Donkey jumps higher than Shrek
+    shrek1.play();
+    shrek1.rewind();
+    
   }
   
   
