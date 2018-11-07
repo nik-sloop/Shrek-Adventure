@@ -15,6 +15,7 @@ PImage grass;
 PImage logs;
 PImage Rocks;
 PImage swampwater;
+PImage outhouse;
 
 
 boolean[] keys = { false, false};
@@ -30,6 +31,7 @@ void setup() {
   Rocks = loadImage("breakableRockSprite.png");
   logs = loadImage("BreakableLogsSprite.png");
   swampwater = loadImage("swampwater.png");
+  outhouse = loadImage("outhouse.png");
 }
  
 void draw() {
@@ -98,6 +100,7 @@ void render() {
   
   // Sprites
   scale(.05); // Properly scales the sprite
+  image(outhouse, 1150, 10300);
   if (character == 1) { // determines which sprite to display
     image(shrek, 20 *(px-20),20 *(py-45)); // Shrek
     jump = -5; // Shek's jump height
@@ -106,12 +109,14 @@ void render() {
     jump = -10; // Donkey jumps higher than Shrek
   }
   
+  
+  
   image(grass, 20000, 10600);
   image(grass, 13000, 10600);
   image(grass, 14000, 10600);
   image(grass, 10000, 10600);
   image(grass, 9400, 10600);
-  image(grass, 1050, 10600);
+  image(grass, 10050, 10600);
   image(grass, 11000, 10600);
   image(grass, 12300, 10600);
   image(grass, 8000, 10600);
@@ -119,13 +124,13 @@ void render() {
   image(grass, 14000, 10600);
   image(grass, 4000, 10600);
   image(grass, 5400, 10600);
-  image(grass, 2950, 10600);
-  image(grass, 1100, 10600);
+  image(grass, 3050, 10600);
+  image(grass, 2500, 10600);
   
-  image(Rocks, 19000, 10600);
-  image(Rocks, 19800, 10600);
-  image(logs, 21400, 10600);
-  image(logs, 20500, 10600);
+  image(Rocks, 19000, 10100);
+  image(Rocks, 20000, 10100);
+  image(logs, 21400, 10100);
+  image(logs, 22500, 10100);
   
   
   image(swampwater, 15000, 11500);
