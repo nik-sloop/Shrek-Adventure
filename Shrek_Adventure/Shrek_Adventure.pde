@@ -28,6 +28,13 @@ int jump = -5; // controls the jump height of the characters
 PImage bg;
 PImage shrek;
 PImage donkey;
+int character = 1; // keeps track of which character is selected
+int jump = -5; // controls the jump height of the characters
+
+// creates variables for the images
+PImage bg;
+PImage shrek;
+PImage donkey;
 PImage grass;
 PImage logs;
 PImage Rocks;
@@ -129,7 +136,11 @@ void simulate() {
   
 void render() {
 <<<<<<< HEAD
+<<<<<<< HEAD
 //set background
+=======
+  // Background
+>>>>>>> c279be5217e968d20c8d0f8b94efffb43d8fbbc9
 =======
   // Background
 >>>>>>> c279be5217e968d20c8d0f8b94efffb43d8fbbc9
@@ -138,6 +149,7 @@ void render() {
   stroke(0);
   fill(139, 69 ,19);
   
+<<<<<<< HEAD
 <<<<<<< HEAD
   drawObsticles();
   drawCharacters();
@@ -183,6 +195,8 @@ void objectSensing(){
       }
     }
 =======
+=======
+>>>>>>> c279be5217e968d20c8d0f8b94efffb43d8fbbc9
   // Platforms
   rect(50, 575, 700, 25);
   rect(900, 575, 500, 25);
@@ -245,6 +259,9 @@ void objectSensing(){
   //}
   //popMatrix();
   
+<<<<<<< HEAD
+>>>>>>> c279be5217e968d20c8d0f8b94efffb43d8fbbc9
+=======
 >>>>>>> c279be5217e968d20c8d0f8b94efffb43d8fbbc9
 }
  
@@ -276,6 +293,12 @@ void keyPressed(){
       character = 0;
     }
 =======
+  if (keyCode == 'A') { // Moves left
+    keys[0] = true;
+  }
+  if (keyCode == 'D') { // Moves right
+    keys[1] = true;
+  }
   if (keyCode == 'A') { // Moves left
     keys[0] = true;
   }
