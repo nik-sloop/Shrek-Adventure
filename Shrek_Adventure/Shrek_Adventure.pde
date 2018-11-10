@@ -14,8 +14,8 @@ int characterWidth = 20;
 character[] shrekCharacters; 
 object[] obsticles;
 
-int character = 1; // keeps track of which character is selected
-int jump = -5; // controls the jump height of the characters
+int character = 0; // keeps track of which character is selected
+
 
 // creates variables for the images
 PImage bg;
@@ -95,6 +95,7 @@ void simulate() {
       obsticles[i].update();
     }
   }  
+  objectSensing();
 }
 void render() {
 
@@ -128,8 +129,7 @@ void drawObsticles(){
 void objectSensing(){
   for(int i = 0; i < obsticles.length; i++){
       if(obsticles[i] != null){
-        if(isTouching(shrekCharacters[character],obsticles[i]) == 1){
-          //shrekCharacter.setxpos(obsticles[1].getxpos()-shrekCharacter.getw());
+        if(isTouching(shrekCharacters[character],obsticles[i]) == 1){          
           shrekCharacters[character].setypos(obsticles[i].getypos()- shrekCharacters[character].geth());
           vy = 0;
           ay = 0;            
@@ -145,7 +145,7 @@ void objectSensing(){
           ay = 0;           
         }
       }
-    }
+}
   
   //// Sprites
   //scale(.05); // Properly scales the sprite
@@ -232,15 +232,15 @@ void keyReleased(){
 }
 
 int isTouching(character h1, object h2){
-  // if touching from below
-  if((h1.getypos() - h2.getypos() <= h2.geth()) && ((h1.getypos()-h2.getypos() > 0))){
-    for(int i =0; i < h1.getw(); i++){
-        if(((h1.getxpos() + i)) == (h2.getxpos() )){
-          println("0");
-          return 0;
-        }
-    }
-  }
+  // if from the bottom
+  //if((h1.getypos() - h2.getypos() <= h2.geth()) && ((h1.getypos()-h2.getypos() > 0))){
+  //  for(int i =0; i < h1.getw(); i++){
+  //      if((h2.getxpos() < (h1.getxpos() + i)) && ((h1.getxpos() +i) <(h2.getxpos()+h2.getw()))){
+  //        println("0");
+  //        return 0;
+  //      }
+  //  }
+  //}
   // if from the top
   if(((h2.getypos()-h1.getypos()) <= h1.geth()) && ((h2.getypos()-h1.getypos()) > 0)){
     for(int i =0; i < h1.getw(); i++){
