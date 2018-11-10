@@ -1,33 +1,18 @@
-import ddf.minim.*;
-AudioPlayer background;
-AudioPlayer shrek1;
-AudioPlayer waffles;
-Minim minim;
+//import ddf.minim.*;
+//AudioPlayer background;
+//AudioPlayer shrek1;
+//AudioPlayer waffles;
+//Minim minim;
 
-float px = 75;  // object position
-float py = 200;  // object position
 float vx = 0;  // current velocity
 float vy = 0;  // current velocity
 float ax = 0;  // object acceleration
 float ay = 0;  // object acceleration
-<<<<<<< HEAD
-<<<<<<< HEAD
-int character = 0 ; //which character is 
-PImage shrek;
-PImage donkey;
+
 int characterHeight = 50;
 int characterWidth = 20;
-boolean[] keys = { false, false };
 character[] shrekCharacters; 
 object[] obsticles;
-
-int character = 1; // keeps track of which character is selected
-int jump = -5; // controls the jump height of the characters
-
-// creates variables for the images
-PImage bg;
-PImage shrek;
-PImage donkey;
 
 int character = 1; // keeps track of which character is selected
 int jump = -5; // controls the jump height of the characters
@@ -68,11 +53,11 @@ void setup() {
   logs = loadImage("BreakableLogsSprite.png");
   swampwater = loadImage("swampwater.png");
   outhouse = loadImage("outhouse.png");
-  minim = new Minim(this);
-  background = minim.loadFile("background2.mp3");
-  shrek1 = minim.loadFile("shrek.mp3");
-  waffles = minim.loadFile("Waffles.mp3");
-  background.loop();
+  //minim = new Minim(this);
+  //background = minim.loadFile("background2.mp3");
+  //shrek1 = minim.loadFile("shrek.mp3");
+  //waffles = minim.loadFile("Waffles.mp3");
+  //background.loop();
 }
  
 void draw() {
@@ -90,9 +75,6 @@ void simulate() {
   vy += ay;
   shrekCharacters[character].setVX(vx);
   shrekCharacters[character].setVY(vy);
-  
-  //if shreks x position is past 1150
-  //then load new obsticles
   
  
   if (shrekCharacters[character].getxpos() > 1190) {
@@ -112,7 +94,8 @@ void simulate() {
     if(obsticles[i] != null){
       obsticles[i].update();
     }
-  }     
+  }  
+}
 void render() {
 
 //set background
@@ -164,32 +147,32 @@ void objectSensing(){
       }
     }
   
-  // Sprites
-  scale(.05); // Properly scales the sprite
-  image(outhouse, 1150, 10300);
-  image(grass, 20000, 10600);
-  image(grass, 13000, 10600);
-  image(grass, 14000, 10600);
-  image(grass, 10000, 10600);
-  image(grass, 9400, 10600);
-  image(grass, 10050, 10600);
-  image(grass, 11000, 10600);
-  image(grass, 12300, 10600);
-  image(grass, 8000, 10600);
-  image(grass, 65500, 10600);
-  image(grass, 14000, 10600);
-  image(grass, 4000, 10600);
-  image(grass, 5400, 10600);
-  image(grass, 3050, 10600);
-  image(grass, 2500, 10600);
+  //// Sprites
+  //scale(.05); // Properly scales the sprite
+  //image(outhouse, 1150, 10300);
+  //image(grass, 20000, 10600);
+  //image(grass, 13000, 10600);
+  //image(grass, 14000, 10600);
+  //image(grass, 10000, 10600);
+  //image(grass, 9400, 10600);
+  //image(grass, 10050, 10600);
+  //image(grass, 11000, 10600);
+  //image(grass, 12300, 10600);
+  //image(grass, 8000, 10600);
+  //image(grass, 65500, 10600);
+  //image(grass, 14000, 10600);
+  //image(grass, 4000, 10600);
+  //image(grass, 5400, 10600);
+  //image(grass, 3050, 10600);
+  //image(grass, 2500, 10600);
   
-  image(Rocks, 19000, 10100);
-  image(Rocks, 20000, 10100);
-  image(logs, 21400, 10100);
-  image(logs, 22500, 10100);
+  //image(Rocks, 19000, 10100);
+  //image(Rocks, 20000, 10100);
+  //image(logs, 21400, 10100);
+  //image(logs, 22500, 10100);
   
   
-  image(swampwater, 15000, 11500);
+  //image(swampwater, 15000, 11500);
 
 
 
@@ -232,6 +215,7 @@ void keyPressed(){
       character = 0;
     }
 }
+}
  
 void keyReleased(){
   if (key == 'a') {
@@ -246,6 +230,7 @@ void keyReleased(){
   //  vy = -1;
   //}
 }
+
 int isTouching(character h1, object h2){
   // if touching from below
   if((h1.getypos() - h2.getypos() <= h2.geth()) && ((h1.getypos()-h2.getypos() > 0))){
