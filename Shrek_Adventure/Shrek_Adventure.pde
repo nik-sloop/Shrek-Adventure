@@ -21,7 +21,6 @@ boolean[] keys = { false, false };
 character[] shrekCharacters; 
 object[] obsticles;
 
-=======
 int character = 1; // keeps track of which character is selected
 int jump = -5; // controls the jump height of the characters
 
@@ -29,7 +28,7 @@ int jump = -5; // controls the jump height of the characters
 PImage bg;
 PImage shrek;
 PImage donkey;
-=======
+
 int character = 1; // keeps track of which character is selected
 int jump = -5; // controls the jump height of the characters
 
@@ -37,20 +36,15 @@ int jump = -5; // controls the jump height of the characters
 PImage bg;
 PImage shrek;
 PImage donkey;
->>>>>>> c279be5217e968d20c8d0f8b94efffb43d8fbbc9
+
 PImage grass;
 PImage logs;
 PImage Rocks;
 PImage swampwater;
 PImage outhouse;
 
-
 boolean[] keys = { false, false};
-<<<<<<< HEAD
->>>>>>> c279be5217e968d20c8d0f8b94efffb43d8fbbc9
-=======
->>>>>>> c279be5217e968d20c8d0f8b94efffb43d8fbbc9
- 
+
 void setup() {
   size(1200, 700);
   //fullScreen();
@@ -59,8 +53,7 @@ void setup() {
   scale(.05);
   shrek = loadImage("ShrekIdleSprite2.png");
   donkey = loadImage("DonkeySpriteIdle2.png");
-<<<<<<< HEAD
-<<<<<<< HEAD
+
   shrekCharacters = new character[2];
   shrekCharacters[0] = new character(110,450,20,50, vx,vy,1); 
   shrekCharacters[1] = new character(110,470,40,30, vx,vy,2);
@@ -69,9 +62,7 @@ void setup() {
   obsticles[1] = new object(500,450,50,50,0,0,0);
   obsticles[2] = new object(600,325,80,10,0,0,0);
   obsticles[3] = new object(750,225,80,10,0,0,0);
-=======
-=======
->>>>>>> c279be5217e968d20c8d0f8b94efffb43d8fbbc9
+
   grass = loadImage("BreakableGrassSprite.png");
   Rocks = loadImage("breakableRockSprite.png");
   logs = loadImage("BreakableLogsSprite.png");
@@ -82,10 +73,6 @@ void setup() {
   shrek1 = minim.loadFile("shrek.mp3");
   waffles = minim.loadFile("Waffles.mp3");
   background.loop();
-<<<<<<< HEAD
->>>>>>> c279be5217e968d20c8d0f8b94efffb43d8fbbc9
-=======
->>>>>>> c279be5217e968d20c8d0f8b94efffb43d8fbbc9
 }
  
 void draw() {
@@ -121,57 +108,19 @@ void simulate() {
     ay = 0;
     println("VY after falling: " +shrekCharacters[character].getVY());
   }
-<<<<<<< HEAD
   for(int i=0; i < obsticles.length; i++){
     if(obsticles[i] != null){
       obsticles[i].update();
     }
-  } 
-  objectSensing();
-=======
-  
-  if (py < 450 && px > 780 && px < 880) {
-    py = 450; 
-    vy = 0; 
-    ay = 0;
-  }
-  
-<<<<<<< HEAD
-=======
-  if (py < 450 && px > 780 && px < 880) {
-    py = 450; 
-    vy = 0; 
-    ay = 0;
-  }
-  
->>>>>>> c279be5217e968d20c8d0f8b94efffb43d8fbbc9
-  if (py > 700) {
-    px = 75;
-    py = -100;
-    ax = 0;
-    vx = 0;
-    vy = 10;    
-  }
->>>>>>> c279be5217e968d20c8d0f8b94efffb43d8fbbc9
-}
-  
+  }     
 void render() {
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 //set background
-=======
-  // Background
->>>>>>> c279be5217e968d20c8d0f8b94efffb43d8fbbc9
-=======
-  // Background
->>>>>>> c279be5217e968d20c8d0f8b94efffb43d8fbbc9
   background(50);
   strokeWeight(3);
   stroke(0);
   fill(139, 69 ,19);
   
-<<<<<<< HEAD
-<<<<<<< HEAD
   drawObsticles();
   drawCharacters();
 }
@@ -192,7 +141,6 @@ void drawObsticles(){
     }
   }
 }
-
 
 void objectSensing(){
   for(int i = 0; i < obsticles.length; i++){
@@ -215,35 +163,10 @@ void objectSensing(){
         }
       }
     }
-=======
-=======
->>>>>>> c279be5217e968d20c8d0f8b94efffb43d8fbbc9
-  // Platforms
-  rect(50, 575, 700, 25);
-  rect(900, 575, 500, 25);
-  rect(780, 450, 100, 25);
-  noStroke();
-  fill(0, 255, 0);
-  //rect(px - 10, py - 20, 20, 20);
   
   // Sprites
   scale(.05); // Properly scales the sprite
   image(outhouse, 1150, 10300);
-  if (character == 1) { // determines which sprite to display
-    image(shrek, 20 *(px-20),20 *(py-45)); // Shrek
-    jump = -5; // Shek's jump height
-    waffles.play();
-    waffles.rewind();
-  } else {
-    image(donkey, 20 *(px-20),20 *(py-45)); // Donkey
-    jump = -10; // Donkey jumps higher than Shrek
-    shrek1.play();
-    shrek1.rewind();
-    
-  }
-  
-  
-  
   image(grass, 20000, 10600);
   image(grass, 13000, 10600);
   image(grass, 14000, 10600);
@@ -280,16 +203,10 @@ void objectSensing(){
   //}
   //popMatrix();
   
-<<<<<<< HEAD
->>>>>>> c279be5217e968d20c8d0f8b94efffb43d8fbbc9
-=======
->>>>>>> c279be5217e968d20c8d0f8b94efffb43d8fbbc9
 }
  
  // Moves character
 void keyPressed(){
-<<<<<<< HEAD
-<<<<<<< HEAD
   if (key == 'a') {
     keys[0] = true;
   }
@@ -314,56 +231,14 @@ void keyPressed(){
       shrekCharacters[1].d();
       character = 0;
     }
-=======
-  if (keyCode == 'A') { // Moves left
-    keys[0] = true;
-  }
-  if (keyCode == 'D') { // Moves right
-    keys[1] = true;
-  }
-=======
-  if (keyCode == 'A') { // Moves left
-    keys[0] = true;
-  }
-  if (keyCode == 'D') { // Moves right
-    keys[1] = true;
-  }
->>>>>>> c279be5217e968d20c8d0f8b94efffb43d8fbbc9
-  // Jump
-  if (keyCode == 'W' && vy == 0) { // Only allows jumping if youre not moving vertically
-    vy = jump;
-  }
-  
-  // Toggles character selection
-  if (keyCode == 'E') {
-     character = character * -1;
-<<<<<<< HEAD
->>>>>>> c279be5217e968d20c8d0f8b94efffb43d8fbbc9
-=======
->>>>>>> c279be5217e968d20c8d0f8b94efffb43d8fbbc9
-  }
 }
  
 void keyReleased(){
-<<<<<<< HEAD
-<<<<<<< HEAD
   if (key == 'a') {
     keys[0] = false;
     vx = 0;
   }
   if (key == 'd') {
-=======
-=======
->>>>>>> c279be5217e968d20c8d0f8b94efffb43d8fbbc9
-  if (keyCode == 'A') {
-    keys[0] = false;
-    vx = 0;
-  }
-  if (keyCode == 'D') {
-<<<<<<< HEAD
->>>>>>> c279be5217e968d20c8d0f8b94efffb43d8fbbc9
-=======
->>>>>>> c279be5217e968d20c8d0f8b94efffb43d8fbbc9
     keys[1] = false;
     vx = 0;
   }
