@@ -1,5 +1,5 @@
 void loadLevels(){
-  ///////obstical parameters: (xPosition, Yposition, Width, Height, xMovement, yMovement, yUpperLimit, yLowerLimit, xUpperLimit, xLowerLimit, obstical type)////////
+  ///////obstical parameters: (xPosition, Yposition, Width, Height, xMovement, xUpperLimit, xLowerLimit, yMovement, yUpperLimit, yLowerLimit, obstical type)////////
   
   obsticles = new object[3][20];
   int grassWidth = 60;
