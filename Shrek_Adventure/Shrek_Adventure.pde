@@ -32,27 +32,21 @@ boolean[] keys = { false, false};
 
 void setup() {
   size(1200, 700);
-  //fullScreen();
+  // fullScreen();
   //bg = loadImage("ShrekBG.jpg");
   //background(bg);
   scale(.05);
   shrek = loadImage("ShrekIdleSprite2.png");
   donkey = loadImage("DonkeySpriteIdle2.png");
 
+  // Creates the characters
   shrekCharacters = new character[2];
   shrekCharacters[0] = new character(110,450,20,50, vx,vy,1); 
   shrekCharacters[1] = new character(110,470,40,30, vx,vy,2);
-  obsticles = new object[10];
-  obsticles[0] = new object(0,530,700,10,0,0,0); // ground
-  obsticles[1] = new object(500,450,50,50,0,0,0);
-  obsticles[2] = new object(600,325,80,10,0,0,0);
-  obsticles[3] = new object(750,225,80,10,0,0,0);
-
-  grass = loadImage("BreakableGrassSprite.png");
-  Rocks = loadImage("breakableRockSprite.png");
-  logs = loadImage("BreakableLogsSprite.png");
-  swampwater = loadImage("swampwater.png");
-  outhouse = loadImage("outhouse.png");
+  
+  image_Loader(); // Loads all of the images used.
+  level_1(); // Loads all of the objects for the first (and only) level.
+  
   //minim = new Minim(this);
   //background = minim.loadFile("background2.mp3");
   //shrek1 = minim.loadFile("shrek.mp3");
@@ -66,6 +60,7 @@ void draw() {
 }
  
 void simulate() {
+  // Handles the movement of the characters
   shrekCharacters[character].update();
   ax = 0;
   ax += keys[0]?-.1:0;
@@ -76,7 +71,6 @@ void simulate() {
   shrekCharacters[character].setVX(vx);
   shrekCharacters[character].setVY(vy);
   
- 
   if (shrekCharacters[character].getxpos() > 1190) {
     shrekCharacters[character].setVX(0);
     ax = 0;
@@ -95,7 +89,7 @@ void simulate() {
       obsticles[i].update();
     }
   }  
-  objectSensing();
+  objectSensing(); // Calls object Sensing 
 }
 void render() {
 
@@ -126,6 +120,7 @@ void drawObsticles(){
   }
 }
 
+// Handles object collision
 void objectSensing(){
   for(int i = 0; i < obsticles.length; i++){
       if(obsticles[i] != null){
@@ -146,37 +141,7 @@ void objectSensing(){
         }
       }
 }
-  
-  //// Sprites
-  //scale(.05); // Properly scales the sprite
-  //image(outhouse, 1150, 10300);
-  //image(grass, 20000, 10600);
-  //image(grass, 13000, 10600);
-  //image(grass, 14000, 10600);
-  //image(grass, 10000, 10600);
-  //image(grass, 9400, 10600);
-  //image(grass, 10050, 10600);
-  //image(grass, 11000, 10600);
-  //image(grass, 12300, 10600);
-  //image(grass, 8000, 10600);
-  //image(grass, 65500, 10600);
-  //image(grass, 14000, 10600);
-  //image(grass, 4000, 10600);
-  //image(grass, 5400, 10600);
-  //image(grass, 3050, 10600);
-  //image(grass, 2500, 10600);
-  
-  //image(Rocks, 19000, 10100);
-  //image(Rocks, 20000, 10100);
-  //image(logs, 21400, 10100);
-  //image(logs, 22500, 10100);
-  
-  
-  //image(swampwater, 15000, 11500);
 
-
-
-  
   // Tries to flip the image to face the direction the character is moving
   //pushMatrix();
   //if(keys[0] == true) {
@@ -189,11 +154,11 @@ void objectSensing(){
 }
  
  // Moves character
-void keyPressed(){
+void keyPressed(){ // Moves character left
   if (key == 'a') {
     keys[0] = true;
   }
-  if (key == 'd') {
+  if (key == 'd') { // Moves character right
     keys[1] = true;
   }
   if (key == 'w' && vy == 0) { // Only allows jumping if youre not moving vertically
@@ -206,7 +171,7 @@ void keyPressed(){
       shrekCharacters[character].setVY(-8);
     }
   }
-  if(key == 'e' && vy == 0){
+  if(key == 'e' && vy == 0){ // Switches characters
     if(shrekCharacters[character].getCharacter() == 1){
       shrekCharacters[0].d();
       character = 1;
@@ -218,11 +183,11 @@ void keyPressed(){
 }
  
 void keyReleased(){
-  if (key == 'a') {
+  if (key == 'a') { // Stops the character from moving
     keys[0] = false;
     vx = 0;
   }
-  if (key == 'd') {
+  if (key == 'd') {  // Stops the character from moving
     keys[1] = false;
     vx = 0;
   }
