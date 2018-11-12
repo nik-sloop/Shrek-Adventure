@@ -71,18 +71,6 @@ void keyPressed(){ // Moves character left
     }    
   if(key == 'e' && vy == 0){
     if(shrekCharacters[character].getCharacter() == 0){
-  if (key == 'w' && vy == 0) { // Only allows jumping if youre not moving vertically
-    if(character == 0){
-      vy = -6;
-      shrekCharacters[character].setVY(-6);
-    }
-    if(character == 1){
-      vy = -8;
-      shrekCharacters[character].setVY(-8);
-    }
-  }
-  if(key == 'e' && vy == 0){ // Switches characters
-    if(shrekCharacters[character].getCharacter() == 1){
       shrekCharacters[0].d();
       character = 1;
     } else {
@@ -91,6 +79,7 @@ void keyPressed(){ // Moves character left
     }
   }
 }
+  
  
 void keyReleased(){
   if (key == 'a') { // Stops the character from moving
