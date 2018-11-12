@@ -4,7 +4,7 @@
   float speedx, speedy; 
   int obsticle;
   int upperY, lowerY, upperX, lowerX;
-  object (float x, float y,int w, int h, float vx, float vy,int uY, int lY, int uX, int lX, int o) {  
+  object (float x, float y,int w, int h, float vx, int uX, int lX,float vy,int uY, int lY, int o) {  
     xpos = x;
     ypos = y; 
     wid = w;
