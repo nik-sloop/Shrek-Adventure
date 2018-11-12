@@ -2,41 +2,36 @@
   float xpos, ypos;
   int wid, hei;
   float speedx, speedy; 
-  int character;
-  object (float x, float y,int w, int h, float vx, float vy, int c) {  
+  int obsticle;
+  int upperY, lowerY, upperX, lowerX;
+  object (float x, float y,int w, int h, float vx, float vy,int uY, int lY, int uX, int lX, int o) {  
     xpos = x;
     ypos = y; 
     wid = w;
     hei =h;
     speedx = vx;
     speedy = vy;
-    character = c;
+    obsticle = o;
+    upperY = uY;
+    lowerY = lY;
+    upperX = uX;
+    lowerX =lX;
   } 
   void update() { 
     xpos += speedx;
     ypos += speedy; 
-    if (ypos > height) { 
+    if (ypos > upperY) { 
       speedy *= -1; 
     } 
-    if (ypos < 0) { 
+    if (ypos < lowerY) { 
       speedy *= -1 ; 
     }
-    if (xpos > width) { 
+    if (xpos > upperX) { 
       speedx *= -1; 
     } 
-    if (xpos < 0) { 
+    if (xpos < lowerX) { 
       speedx *= -1; 
     }
-    if(character == 1){
-      characterHeight =50;
-      characterWidth = 20;
-    }
-    if(character == 2){
-      characterHeight =20;
-      characterWidth = 50;
-    }
-    //rect(xpos, ypos, wid, hei); 
-    //println(ypos);
   } 
   float getxpos(){
     return xpos;
@@ -59,6 +54,9 @@
   float getVY(){
   return speedy;
   }
+  float getVX(){
+  return speedx;
+  }
   void setVX(float vx){
     speedx = vx;
   }
@@ -72,26 +70,37 @@
     character = i;
   }
   void d(){
-    if(character == 0){
-      rect(xpos, ypos, wid, hei);
-      
-      
-      
+    if(obsticle == 0){
+      fill(139, 69 ,19);
+      strokeWeight(3);
+      stroke(0);
+      rect(xpos, ypos, wid, hei);   
     }    
-    if(character == 1){
+    if(obsticle == 1){
+      //fill(255);
       noFill();
       noStroke();
-      rect(xpos,ypos,20,50);
-      scale(.05);
-      image(shrek,(xpos*20)-300,(ypos*20));
-      scale(20);
+      rect(xpos,ypos,wid,hei);
+      scale(.125);
+      image(grass,(xpos*8)-200,(ypos*8)-310);
+      scale(8);
     }
-    if(character == 2){
+    if(obsticle == 2){
+      fill(255);
       noFill();
       noStroke();
-      rect(xpos,ypos,40,30);
+      rect(xpos,ypos,wid,hei);
+      scale(.1);
+      image(rocks,(xpos*10)-200,(ypos*10)-600);
+      scale(10);
+    }
+    if(obsticle == 3){
+      fill(255);
+      noFill();
+      noStroke();
+      rect(xpos,ypos,wid,hei);
       scale(.05);
-      image(donkey,(xpos*20)-100,(ypos*20)-330);
+      image(logs,(xpos*20)-175,(ypos*20)-400);
       scale(20);
     }
   }
