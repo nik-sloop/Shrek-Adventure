@@ -36,6 +36,8 @@ void setup() {
   loadCharacters(); // create characters
   loadLevels();     // load all the obsticles for each level
    
+  size(1200, 700);
+  image_Loader(); // Loads all of the images used.
   //minim = new Minim(this);
   //background = minim.loadFile("background2.mp3");
   //shrek1 = minim.loadFile("shrek.mp3");
@@ -48,11 +50,11 @@ void draw() {
   render();
 } 
  // Moves character
-void keyPressed(){
+void keyPressed(){ // Moves character left
   if (key == 'a') {
     keys[0] = true;
   }
-  if (key == 'd') {
+  if (key == 'd') { // Moves character right
     keys[1] = true;
   }
   if (key == 'w' && vy == 0 ){ // Only allows jumping if youre not moving vertically
@@ -67,6 +69,18 @@ void keyPressed(){
     }    
   if(key == 'e' && vy == 0){
     if(shrekCharacters[character].getCharacter() == 0){
+  if (key == 'w' && vy == 0) { // Only allows jumping if youre not moving vertically
+    if(character == 0){
+      vy = -6;
+      shrekCharacters[character].setVY(-6);
+    }
+    if(character == 1){
+      vy = -8;
+      shrekCharacters[character].setVY(-8);
+    }
+  }
+  if(key == 'e' && vy == 0){ // Switches characters
+    if(shrekCharacters[character].getCharacter() == 1){
       shrekCharacters[0].d();
       character = 1;
     } else {
@@ -77,11 +91,11 @@ void keyPressed(){
 }
  
 void keyReleased(){
-  if (key == 'a') {
+  if (key == 'a') { // Stops the character from moving
     keys[0] = false;
     vx = 0;
   }
-  if (key == 'd') {
+  if (key == 'd') {  // Stops the character from moving
     keys[1] = false;
     vx = 0;
   }
