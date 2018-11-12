@@ -37,6 +37,8 @@ void setup() {
   loadLevels();     // load all the obsticles for each level
    
   size(1200, 700);
+  // fullScreen();
+  //bg = loadImage("ShrekBG.jpg");
   image_Loader(); // Loads all of the images used.
   //minim = new Minim(this);
   //background = minim.loadFile("background2.mp3");
