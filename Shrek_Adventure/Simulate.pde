@@ -24,7 +24,7 @@ void simulate() {
     shrekCharacters[1].setypos(500);
   }
   if (shrekCharacters[character].getypos() > 780) { 
-    shrekCharacters[character].setypos(500);
+    shrekCharacters[character].setypos(490);
     shrekCharacters[character].setxpos(150);
     vy = 0;   
     ay = 0;
@@ -41,6 +41,10 @@ void simulate() {
 void nextLevel(){
   if(level == 0){
     level = 1;
+  } else if (level == 1){
+    level = 2;
+  } else if (level == 2){
+    level = 3;
   }
 }
 void detectObject(){
