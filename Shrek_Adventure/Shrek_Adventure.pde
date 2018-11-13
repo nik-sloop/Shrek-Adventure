@@ -1,9 +1,9 @@
 // Loads all of the audio players
-//import ddf.minim.*;
-//AudioPlayer background; // Background music
-//AudioPlayer shrek1; // Shrek's catchphrase
-//AudioPlayer waffles; // Donkey's catchphrase
-//Minim minim;
+import ddf.minim.*;
+AudioPlayer background; // Background music
+AudioPlayer shrek1; // Shrek's catchphrase
+AudioPlayer waffles; // Donkey's catchphrase
+Minim minim;
 
 float vx = 0;  // current velocity
 float vy = 0;  // current velocity
@@ -44,11 +44,11 @@ void setup() {
   image_Loader(); // Loads all of the images used.
   
   // Starts all of the music
-  //minim = new Minim(this);
-  //background = minim.loadFile("background2.mp3");
-  //shrek1 = minim.loadFile("shrek.mp3");
-  //waffles = minim.loadFile("Waffles.mp3");
-  //background.loop();
+  minim = new Minim(this);
+  background = minim.loadFile("background2.mp3");
+  shrek1 = minim.loadFile("shrek.mp3");
+  waffles = minim.loadFile("Waffles.mp3");
+  background.loop();
 }
  
 // Draws the map 
@@ -85,9 +85,13 @@ void keyPressed(){
     if(shrekCharacters[character].getCharacter() == 0){
       shrekCharacters[0].d();
       character = 1;
+      waffles.play();
+      waffles.rewind();
     } else {
       shrekCharacters[1].d();
       character = 0;
+      shrek1.play();
+      shrek1.rewind();
     }
   }
 }
