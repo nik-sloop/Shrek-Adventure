@@ -1,3 +1,7 @@
+/*
+  This class calls all the other classes that are used
+  to render the level. 
+*/
 void render() {
 
 //set background
@@ -5,6 +9,7 @@ void render() {
   drawObsticles();
   drawCharacters();
 }
+// Draws the appropriate character
 void drawCharacters(){
   
   if(shrekCharacters[character].getCharacter() == 0){

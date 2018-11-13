@@ -1,6 +1,13 @@
+/*
+  This class contains all the information needed to render each
+  level in the game. It has the location of all the platforms and sprites
+  as well as their size and if they are moving across the screen.
+*/
+
 void loadLevels(){
   ///////obstical parameters: (xPosition, Yposition, Width, Height, xMovement, xUpperLimit, xLowerLimit, yMovement, yUpperLimit, yLowerLimit, obstical type)////////
   
+  // Creates a multi-dimensional array with three levels and all the objects in those levels
   obsticles = new object[3][25];
   int grassWidth = 60;
   int grassHeight = 80;
