@@ -2,6 +2,11 @@ void simulate() {
   
   shrekCharacters[character].update(); // update characters position based on the simulation
   
+  /*
+  Handles the movement of the character
+  We got help on lines 10-15 this from site
+  https://forum.processing.org/two/discussion/25157/help-with-gravity-and-jumping
+  */
   ax = 0;
   ax += keys[0]?-.1:0;
   ax += keys[1]?.1:0;
@@ -47,6 +52,7 @@ void nextLevel(){
     level = 3;
   }
 }
+// Handles collision detection between the character and other objects.
 void detectObject(){
   for(int i = 0; i < obsticles[level].length; i++){
       if(obsticles[level][i] != null){
@@ -71,6 +77,7 @@ void detectObject(){
       }
    } 
 }
+// Checks to see if the character is touching an object.
 int isTouching(character h1, object h2){
   // if from the bottom
   if((h1.getypos() - h2.getypos() <= h2.geth()) && ((h1.getypos()-h2.getypos() > h2.geth()-20))){
