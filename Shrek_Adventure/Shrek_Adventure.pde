@@ -3,6 +3,8 @@ import ddf.minim.*;
 AudioPlayer background; // Background music
 AudioPlayer shrek1; // Shrek's catchphrase
 AudioPlayer waffles; // Donkey's catchphrase
+AudioPlayer shrekDeath; //Shrek's audio when he dies
+AudioPlayer donkeyDeath; //Donkey's audio when he dies
 Minim minim;
 
 float vx = 0;  // current velocity
@@ -48,6 +50,8 @@ void setup() {
   background = minim.loadFile("background2.mp3");
   shrek1 = minim.loadFile("shrek.mp3");
   waffles = minim.loadFile("Waffles.mp3");
+  shrekDeath = minim.loadFile("shrekDeath.mp3");
+  donkeyDeath = minim.loadFile("donkeyDeath.mp3");
   background.loop();
 }
  

@@ -40,7 +40,16 @@ void simulate() {
     if(obsticles[level][i] != null){
       obsticles[level][i].update();
     }
-  }  
+  } 
+  
+  if(shrekCharacters[character].getypos() > 680 && character == 0) {
+    shrekDeath.play();
+    shrekDeath.rewind();
+  }
+  else if(shrekCharacters[character].getypos() > 680 && character == 1){
+   donkeyDeath.play();
+   donkeyDeath.rewind();
+  }
   detectObject();
 }
 void nextLevel(){
