@@ -102,6 +102,16 @@
       scale(.05);
       image(logs,(xpos*20)-175,(ypos*20)-400);
       scale(20);
+    } 
+    if(obsticle == 4){
+      fill(255);
+      noFill();
+      noStroke();
+      rect(xpos,ypos,wid,hei);
+      scale(.25);
+      image(menu,(xpos*20)-175,(ypos*20)-400);
+      scale(20);
     }
+    
   }
 }
