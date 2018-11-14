@@ -7,4 +7,5 @@ void image_Loader() {
   logs = loadImage("BreakableLogsSprite.png");
   swampwater = loadImage("swampwater.png");
   outhouse = loadImage("outhouse.png"); 
+  menu = loadImage("ShrekTitleScreen.png");
 }
