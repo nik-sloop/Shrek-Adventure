@@ -42,13 +42,11 @@ PImage startscreen;
 boolean[] keys = { false, false};
 
 void setup() {
-  size(1200, 700); // set scree size
+  size(1200, 700); // set screen size
   image_Loader();  // load all of the needed images
   loadCharacters(); // create characters
   loadLevels();     // load all the obsticles for each level
    
-  size(1200, 700);
-  // fullScreen();
   //bg = loadImage("ShrekBG.jpg");
   image_Loader(); // Loads all of the images used.
   
@@ -68,11 +66,11 @@ void draw() {
 // Is called when a key is pressed
 void keyPressed(){ 
   // Moves character left
-  if (key == 'a') {
+  if (key == 'a' || key == 'A') {
     keys[0] = true;
   }
   // Moves character right
-  if (key == 'd') { 
+  if (key == 'd' || key == 'D') { 
     keys[1] = true;
   }
   
@@ -80,17 +78,17 @@ void keyPressed(){
       Checks to see which character is selected
       and then applies the correct jump height.
   */
-  if (key == 'w' && vy == 0 ){ // Causes the charcter to jump
+  if (key == 'w' && vy == 0 || key == 'W' ){ // Causes the charcter to jump
       if(character == 0){
         vy = -6; // Prevents the character from jumping in air
-        shrekCharacters[character].setVY(-6); // Jump height
+        shrekCharacters[character].setVY(-6); // Jump height   
       }
       if(character == 1){
         vy = -8; // Prevents the character from jumping in air
         shrekCharacters[character].setVY(-8); // Jump height 
       }
     }    
-  if(key == 'e' && vy == 0){ // Switches between characters.
+  if(key == 'e' || key == 'E' && vy == 0){ // Switches between characters.
     if(shrekCharacters[character].getCharacter() == 0){
       shrekCharacters[0].d();
       character = 1;

@@ -103,5 +103,36 @@
       image(logs,(xpos*20)-175,(ypos*20)-400);
       scale(20);
     }
+    if(obsticle == 4){
+      fill(255);
+      textSize(20);
+      text("Donkey can jump higher than Shrek and fit through tight area.",150, 100);
+      text("E = change Character", 150, 150);
+      text("A = Left", 150, 200);
+      text("D = Right", 150, 250);
+      text("W = JUMP", 150, 300);
+    }
+    if(obsticle == 5){
+      fill(255);
+      textSize(100);
+      text("TO BE CONTINUED....", 150, 100);
+      textSize(30);
+      text("Press Esc to Exit", 500, 200);
+    }
+    if(obsticle == 6){
+      fill(255);
+      textSize(20);
+      text("Get over here", 1000,100);
+    }
+    if(obsticle == 7){
+      fill(255);
+      textSize(20);
+      text("Get over here", 1000,500);
+    }
+    if(obsticle == 8){
+      fill(255);
+      textSize(85);
+      text("SKILL LEVEL 99999 MODE", 100, 100);
+    }
   }
 }
