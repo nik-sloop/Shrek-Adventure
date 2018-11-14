@@ -6,5 +6,10 @@ void image_Loader() {
   rocks = loadImage("breakableRockSprite.png");
   logs = loadImage("BreakableLogsSprite.png");
   swampwater = loadImage("swampwater.png");
-  outhouse = loadImage("outhouse.png"); 
+  outhouse = loadImage("outhouse.png");
+  backgroundtree = loadImage("backgroundtree.png");
+  shrekleft = loadImage("ShrekIdleLeft.png");
+  donkeyleft = loadImage("DonkeyIdleLeft.png");
+  startscreen = loadImage("ShrekTitleScreen.png");
+  
 }

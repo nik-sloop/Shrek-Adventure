@@ -21,13 +21,22 @@ int level = 0; // keeps track of which level the player is on
 // creates variables for the images
 PImage bg;
 PImage shrek;
+PImage shrekleft;
+PImage shrekpunching;
 PImage donkey;
+PImage donkeyleft;
+
 
 PImage grass;
 PImage logs;
 PImage rocks;
 PImage swampwater;
 PImage outhouse;
+PImage backgroundtree;
+
+PImage startscreen;
+
+
 
 // Creates an array for the left and right controls
 boolean[] keys = { false, false};

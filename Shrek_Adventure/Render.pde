@@ -9,6 +9,11 @@ void render() {
   drawObsticles();
   drawCharacters();
 }
+
+void drawBackgroundImages(){
+  
+  
+}
 // Draws the appropriate character
 void drawCharacters(){
   
