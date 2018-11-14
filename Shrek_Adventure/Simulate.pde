@@ -17,7 +17,7 @@ void simulate() {
   shrekCharacters[character].setVY(vy);
   
  
-  if (shrekCharacters[character].getxpos() > 1170) {   
+  if (shrekCharacters[character].getxpos() > 1170 && level != 3) {   
     ax = 0;
     vx =0;
     vy = 0;
@@ -36,11 +36,22 @@ void simulate() {
     println("VY after falling: " +shrekCharacters[character].getVY());
   }
   println(level);
-  for(int i=0; i < obsticles[level].length; i++){
+  for(int i=0; i <= obsticles[level].length; i++){
     if(obsticles[level][i] != null){
       obsticles[level][i].update();
+    } else {
+     break; 
     }
-  }  
+  } 
+  
+  if(shrekCharacters[character].getypos() > 680 && character == 0) {
+    shrekDeath.play();
+    shrekDeath.rewind();
+  }
+  else if(shrekCharacters[character].getypos() > 680 && character == 1){
+   donkeyDeath.play();
+   donkeyDeath.rewind();
+  }
   detectObject();
 }
 void nextLevel(){

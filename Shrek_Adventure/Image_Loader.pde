@@ -12,4 +12,8 @@ void image_Loader() {
   donkeyleft = loadImage("DonkeyIdleLeft.png");
   startscreen = loadImage("ShrekTitleScreen.png");
   
+=======
+  outhouse = loadImage("outhouse.png"); 
+  menu = loadImage("ShrekTitleScreen.png");
+>>>>>>> Will
 }

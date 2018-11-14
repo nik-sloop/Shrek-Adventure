@@ -102,7 +102,17 @@
       scale(.05);
       image(logs,(xpos*20)-175,(ypos*20)-400);
       scale(20);
+    } 
+    if(obsticle == 4){
+      fill(255);
+      noFill();
+      noStroke();
+      rect(xpos,ypos,wid,hei);
+      scale(.25);
+      image(menu,(xpos*20)-175,(ypos*20)-400);
+      scale(20);
     }
+<<<<<<< HEAD
     if(obsticle == 4){
       fill(255);
       textSize(20);
@@ -134,5 +144,8 @@
       textSize(85);
       text("SKILL LEVEL 99999 MODE", 100, 100);
     }
+=======
+    
+>>>>>>> fedb8007659bfdf5ff1bbf58d2877a6da1f83541
   }
 }
