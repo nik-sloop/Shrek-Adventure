@@ -12,10 +12,24 @@ float vy = 0;  // current velocity
 float ax = 0;  // object acceleration
 float ay = 0;  // object acceleration
 
+//variables to control the volum of the audio file
+int volume = -20;
+int volumeMute = -75;
+int volumeGain;
+int evolume = -20;
+int evolumeMute = -75;
+int evolumeGain;
+
+//checks to see if the mute button is activated
+boolean isMute = false;
+boolean eisMute = false;
+
 int characterHeight = 50;
 int characterWidth = 20;
 character[] shrekCharacters; 
 object[][] obsticles;
+
+boolean settings = false;
 
 int character = 0; // keeps track of which character is selected
 int level = 0; // keeps track of which level the player is on
@@ -52,7 +66,7 @@ void setup() {
   loadCharacters(); // create characters
   loadLevels();     // load all the obsticles for each level
    
-  size(1200, 700);
+
   // fullScreen();
   //bg = loadImage("ShrekBG.jpg");
   image_Loader(); // Loads all of the images used.
@@ -69,9 +83,19 @@ void setup() {
  
 // Draws the map 
 void draw() {
+  if(settings == false){
   simulate();
   render();
-} 
+  }
+  else if(settings){
+    soundSettings();
+  }
+  background.setGain(volume);
+  shrek1.setGain(evolume);
+  waffles.setGain(evolume);
+  shrekDeath.setGain(evolume);
+  donkeyDeath.setGain(evolume);
+  }
 // Is called when a key is pressed
 void keyPressed(){ 
   // Moves character left

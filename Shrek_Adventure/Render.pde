@@ -19,11 +19,15 @@ void drawBackgroundImages(){
     image(backgroundtree,720,0, 300,530);
     image(outhouse,40,440, 90, 90);
     image(swampwater,570, 440,270,270);
+    fill(255);
+    rect(20, 20, 30, 30);
     
   }
   if(level == 2){
     image(swampwater,580, 440,290,270);
     image(swampwater,200, 440,290,270);
+    fill(255);
+    rect(20, 20, 30, 30);
     
   }
   
