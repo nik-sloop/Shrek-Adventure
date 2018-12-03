@@ -57,12 +57,21 @@ if(mouseX >= 900 && mouseX <= 1000 && mouseY >= 300 && mouseY <= 350 && settings
   
 }
 
-if(mouseX >= 400 && mouseX <= 550 && mouseY >= 500 && mouseY <= 575){
+if(settings && mouseX >= 400 && mouseX <= 550 && mouseY >= 500 && mouseY <= 575){
   settings = false;
 }
 
-if(mouseX >= 650 && mouseX <= 800 && mouseY >= 500 && mouseY <= 575){
+if(settings && mouseX >= 650 && mouseX <= 800 && mouseY >= 500 && mouseY <= 575){
   exit();
+}
+
+if(title && mouseX >= 80 && mouseX <= 460 && mouseY >= 435 && mouseY <= 525){
+  title = false;
+}
+
+if(title && mouseX >= 560 && mouseX <= 1190 && mouseY >= 435 && mouseY <= 525){
+  title = false;
+  settings = true;
 }
 }
 

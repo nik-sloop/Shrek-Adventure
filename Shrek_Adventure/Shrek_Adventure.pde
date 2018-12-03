@@ -31,6 +31,8 @@ object[][] obsticles;
 
 boolean settings = false;
 
+boolean title = false;
+
 int character = 0; // keeps track of which character is selected
 int level = 0; // keeps track of which level the player is on
 
@@ -65,6 +67,7 @@ void setup() {
   image_Loader();  // load all of the needed images
   loadCharacters(); // create characters
   loadLevels();     // load all the obsticles for each level
+  title = true;
    
 
   // fullScreen();
@@ -83,7 +86,7 @@ void setup() {
  
 // Draws the map 
 void draw() {
-  if(settings == false){
+  if(settings == false && title == false){
   simulate();
   render();
   }
@@ -95,6 +98,7 @@ void draw() {
   waffles.setGain(evolume);
   shrekDeath.setGain(evolume);
   donkeyDeath.setGain(evolume);
+  titleScreen();
   }
 // Is called when a key is pressed
 void keyPressed(){ 
@@ -145,5 +149,11 @@ void keyReleased(){
   if (key == 'd') {  // Stops the character from moving
     keys[1] = false;
     vx = 0;
+  }
+}
+
+void titleScreen(){
+  if(title){
+    image(startscreen, 0, 0, width, height);
   }
 }
